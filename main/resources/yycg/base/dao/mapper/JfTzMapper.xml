@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yycg.base.dao.mapper.JfTzMapper">
+  <resultMap id="BaseResultMap" type="yycg.base.pojo.po.JfTz">
+    <id column="TZBH" jdbcType="VARCHAR" property="tzbh" />
+    <result column="KHBH" jdbcType="VARCHAR" property="khbh" />
+    <result column="CMDM" jdbcType="CHAR" property="cmdm" />
+    <result column="HCHC" jdbcType="VARCHAR" property="hchc" />
+    <result column="JSFS" jdbcType="CHAR" property="jsfs" />
+    <result column="FMDM" jdbcType="CHAR" property="fmdm" />
+    <result column="CC" jdbcType="CHAR" property="cc" />
+    <result column="KZ" jdbcType="CHAR" property="kz" />
+    <result column="WLBZ" jdbcType="CHAR" property="wlbz" />
+    <result column="NWM" jdbcType="CHAR" property="nwm" />
+    <result column="YJYBS" jdbcType="CHAR" property="yjybs" />
+    <result column="ZXCBZ" jdbcType="CHAR" property="zxcbz" />
+    <result column="TSBZ" jdbcType="CHAR" property="tsbz" />
+    <result column="SLSL" jdbcType="DECIMAL" property="slsl" />
+    <result column="JJJS" jdbcType="DECIMAL" property="jjjs" />
+    <result column="YBJS" jdbcType="DECIMAL" property="ybjs" />
+    <result column="ZBJS" jdbcType="DECIMAL" property="zbjs" />
+    <result column="FLZ" jdbcType="DECIMAL" property="flz" />
+    <result column="FLZYHLL" jdbcType="DECIMAL" property="flzyhll" />
+    <result column="YSJE" jdbcType="DECIMAL" property="ysje" />
+    <result column="YSJEYHLL" jdbcType="DECIMAL" property="ysjeyhll" />
+    <result column="JFRQ" jdbcType="DATE" property="jfrq" />
+    <result column="FPBH" jdbcType="VARCHAR" property="fpbh" />
+    <result column="ZPBH" jdbcType="VARCHAR" property="zpbh" />
+    <result column="SWFPBH" jdbcType="VARCHAR" property="swfpbh" />
+    <result column="JSR" jdbcType="VARCHAR" property="jsr" />
+    <result column="BPR" jdbcType="VARCHAR" property="bpr" />
+    <result column="FHR" jdbcType="VARCHAR" property="fhr" />
+    <result column="ZXFS" jdbcType="CHAR" property="zxfs" />
+    <result column="TDH" jdbcType="VARCHAR" property="tdh" />
+    <result column="HBLB" jdbcType="VARCHAR" property="hblb" />
+    <result column="SBBZ" jdbcType="CHAR" property="sbbz" />
+    <result column="BPBZ" jdbcType="CHAR" property="bpbz" />
+    <result column="SJLGSJ" jdbcType="DATE" property="sjlgsj" />
+    <result column="XSGSM" jdbcType="CHAR" property="xsgsm" />
+    <result column="WTDH" jdbcType="VARCHAR" property="wtdh" />
+    <result column="CYTGJKFS" jdbcType="CHAR" property="cytgjkfs" />
+    <result column="TZBHBZ" jdbcType="VARCHAR" property="tzbhbz" />
+    <result column="ZFFPBH" jdbcType="VARCHAR" property="zffpbh" />
+    <result column="FPLB" jdbcType="CHAR" property="fplb" />
+    <result column="BCZD" jdbcType="VARCHAR" property="bczd" />
+    <result column="BZBZ" jdbcType="VARCHAR" property="bzbz" />
+    <result column="SZHTZBZ" jdbcType="CHAR" property="szhtzbz" />
+    <result column="TJSJ" jdbcType="DATE" property="tjsj" />
+    <result column="CONNO" jdbcType="VARCHAR" property="conno" />
+    <result column="MTDM" jdbcType="VARCHAR" property="mtdm" />
+    <result column="INSERTSJ" jdbcType="DATE" property="insertsj" />
+    <result column="UPDATESJ" jdbcType="DATE" property="updatesj" />
+    <result column="ZZCMDM" jdbcType="CHAR" property="zzcmdm" />
+    <result column="ZZHCHC" jdbcType="VARCHAR" property="zzhchc" />
+    <result column="BZBZ2" jdbcType="VARCHAR" property="bzbz2" />
+    <result column="BZBZ3" jdbcType="VARCHAR" property="bzbz3" />
+    <result column="BZBZ4" jdbcType="VARCHAR" property="bzbz4" />
+    <result column="DWLB" jdbcType="CHAR" property="dwlb" />
+    <result column="YHFHSJ" jdbcType="DATE" property="yhfhsj" />
+    <result column="YWLSH" jdbcType="VARCHAR" property="ywlsh" />
+    <result column="YCPBZ" jdbcType="CHAR" property="ycpbz" />
+    <result column="FPHT" jdbcType="VARCHAR" property="fpht" />
+    <result column="GTH" jdbcType="VARCHAR" property="gth" />
+    <result column="YHBL" jdbcType="DECIMAL" property="yhbl" />
+    <result column="YHJE" jdbcType="DECIMAL" property="yhje" />
+    <result column="NSJE" jdbcType="DECIMAL" property="nsje" />
+    <result column="YHNSJE" jdbcType="DECIMAL" property="yhnsje" />
+    <result column="FPDM" jdbcType="VARCHAR" property="fpdm" />
+    <result column="TAXRATE" jdbcType="DECIMAL" property="taxrate" />
+    <result column="FKZH" jdbcType="VARCHAR" property="fkzh" />
+    <result column="SKZH" jdbcType="VARCHAR" property="skzh" />
+    <result column="ZDBH" jdbcType="VARCHAR" property="zdbh" />
+    <result column="FPYYH" jdbcType="VARCHAR" property="fpyyh" />
+    <result column="FPYYSJ" jdbcType="DATE" property="fpyysj" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    TZBH, KHBH, CMDM, HCHC, JSFS, FMDM, CC, KZ, WLBZ, NWM, YJYBS, ZXCBZ, TSBZ, SLSL, 
+    JJJS, YBJS, ZBJS, FLZ, FLZYHLL, YSJE, YSJEYHLL, JFRQ, FPBH, ZPBH, SWFPBH, JSR, BPR, 
+    FHR, ZXFS, TDH, HBLB, SBBZ, BPBZ, SJLGSJ, XSGSM, WTDH, CYTGJKFS, TZBHBZ, ZFFPBH, 
+    FPLB, BCZD, BZBZ, SZHTZBZ, TJSJ, CONNO, MTDM, INSERTSJ, UPDATESJ, ZZCMDM, ZZHCHC, 
+    BZBZ2, BZBZ3, BZBZ4, DWLB, YHFHSJ, YWLSH, YCPBZ, FPHT, GTH, YHBL, YHJE, NSJE, YHNSJE, 
+    FPDM, TAXRATE, FKZH, SKZH, ZDBH, FPYYH, FPYYSJ
+  </sql>
+  <select id="selectByExample" parameterType="yycg.base.pojo.po.JfTzExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from JF_TZ
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from JF_TZ
+    where TZBH = #{tzbh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from JF_TZ
+    where TZBH = #{tzbh,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="yycg.base.pojo.po.JfTzExample">
+    delete from JF_TZ
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="yycg.base.pojo.po.JfTz">
+    insert into JF_TZ (TZBH, KHBH, CMDM, 
+      HCHC, JSFS, FMDM, CC, 
+      KZ, WLBZ, NWM, YJYBS, 
+      ZXCBZ, TSBZ, SLSL, JJJS, 
+      YBJS, ZBJS, FLZ, FLZYHLL, 
+      YSJE, YSJEYHLL, JFRQ, 
+      FPBH, ZPBH, SWFPBH, 
+      JSR, BPR, FHR, ZXFS, 
+      TDH, HBLB, SBBZ, BPBZ, 
+      SJLGSJ, XSGSM, WTDH, CYTGJKFS, 
+      TZBHBZ, ZFFPBH, FPLB, 
+      BCZD, BZBZ, SZHTZBZ, TJSJ, 
+      CONNO, MTDM, INSERTSJ, 
+      UPDATESJ, ZZCMDM, ZZHCHC, 
+      BZBZ2, BZBZ3, BZBZ4, 
+      DWLB, YHFHSJ, YWLSH, YCPBZ, 
+      FPHT, GTH, YHBL, YHJE, 
+      NSJE, YHNSJE, FPDM, 
+      TAXRATE, FKZH, SKZH, 
+      ZDBH, FPYYH, FPYYSJ)
+    values (#{tzbh,jdbcType=VARCHAR}, #{khbh,jdbcType=VARCHAR}, #{cmdm,jdbcType=CHAR}, 
+      #{hchc,jdbcType=VARCHAR}, #{jsfs,jdbcType=CHAR}, #{fmdm,jdbcType=CHAR}, #{cc,jdbcType=CHAR}, 
+      #{kz,jdbcType=CHAR}, #{wlbz,jdbcType=CHAR}, #{nwm,jdbcType=CHAR}, #{yjybs,jdbcType=CHAR}, 
+      #{zxcbz,jdbcType=CHAR}, #{tsbz,jdbcType=CHAR}, #{slsl,jdbcType=DECIMAL}, #{jjjs,jdbcType=DECIMAL}, 
+      #{ybjs,jdbcType=DECIMAL}, #{zbjs,jdbcType=DECIMAL}, #{flz,jdbcType=DECIMAL}, #{flzyhll,jdbcType=DECIMAL}, 
+      #{ysje,jdbcType=DECIMAL}, #{ysjeyhll,jdbcType=DECIMAL}, #{jfrq,jdbcType=DATE}, 
+      #{fpbh,jdbcType=VARCHAR}, #{zpbh,jdbcType=VARCHAR}, #{swfpbh,jdbcType=VARCHAR}, 
+      #{jsr,jdbcType=VARCHAR}, #{bpr,jdbcType=VARCHAR}, #{fhr,jdbcType=VARCHAR}, #{zxfs,jdbcType=CHAR}, 
+      #{tdh,jdbcType=VARCHAR}, #{hblb,jdbcType=VARCHAR}, #{sbbz,jdbcType=CHAR}, #{bpbz,jdbcType=CHAR}, 
+      #{sjlgsj,jdbcType=DATE}, #{xsgsm,jdbcType=CHAR}, #{wtdh,jdbcType=VARCHAR}, #{cytgjkfs,jdbcType=CHAR}, 
+      #{tzbhbz,jdbcType=VARCHAR}, #{zffpbh,jdbcType=VARCHAR}, #{fplb,jdbcType=CHAR}, 
+      #{bczd,jdbcType=VARCHAR}, #{bzbz,jdbcType=VARCHAR}, #{szhtzbz,jdbcType=CHAR}, #{tjsj,jdbcType=DATE}, 
+      #{conno,jdbcType=VARCHAR}, #{mtdm,jdbcType=VARCHAR}, #{insertsj,jdbcType=DATE}, 
+      #{updatesj,jdbcType=DATE}, #{zzcmdm,jdbcType=CHAR}, #{zzhchc,jdbcType=VARCHAR}, 
+      #{bzbz2,jdbcType=VARCHAR}, #{bzbz3,jdbcType=VARCHAR}, #{bzbz4,jdbcType=VARCHAR}, 
+      #{dwlb,jdbcType=CHAR}, #{yhfhsj,jdbcType=DATE}, #{ywlsh,jdbcType=VARCHAR}, #{ycpbz,jdbcType=CHAR}, 
+      #{fpht,jdbcType=VARCHAR}, #{gth,jdbcType=VARCHAR}, #{yhbl,jdbcType=DECIMAL}, #{yhje,jdbcType=DECIMAL}, 
+      #{nsje,jdbcType=DECIMAL}, #{yhnsje,jdbcType=DECIMAL}, #{fpdm,jdbcType=VARCHAR}, 
+      #{taxrate,jdbcType=DECIMAL}, #{fkzh,jdbcType=VARCHAR}, #{skzh,jdbcType=VARCHAR}, 
+      #{zdbh,jdbcType=VARCHAR}, #{fpyyh,jdbcType=VARCHAR}, #{fpyysj,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="yycg.base.pojo.po.JfTz">
+    insert into JF_TZ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tzbh != null">
+        TZBH,
+      </if>
+      <if test="khbh != null">
+        KHBH,
+      </if>
+      <if test="cmdm != null">
+        CMDM,
+      </if>
+      <if test="hchc != null">
+        HCHC,
+      </if>
+      <if test="jsfs != null">
+        JSFS,
+      </if>
+      <if test="fmdm != null">
+        FMDM,
+      </if>
+      <if test="cc != null">
+        CC,
+      </if>
+      <if test="kz != null">
+        KZ,
+      </if>
+      <if test="wlbz != null">
+        WLBZ,
+      </if>
+      <if test="nwm != null">
+        NWM,
+      </if>
+      <if test="yjybs != null">
+        YJYBS,
+      </if>
+      <if test="zxcbz != null">
+        ZXCBZ,
+      </if>
+      <if test="tsbz != null">
+        TSBZ,
+      </if>
+      <if test="slsl != null">
+        SLSL,
+      </if>
+      <if test="jjjs != null">
+        JJJS,
+      </if>
+      <if test="ybjs != null">
+        YBJS,
+      </if>
+      <if test="zbjs != null">
+        ZBJS,
+      </if>
+      <if test="flz != null">
+        FLZ,
+      </if>
+      <if test="flzyhll != null">
+        FLZYHLL,
+      </if>
+      <if test="ysje != null">
+        YSJE,
+      </if>
+      <if test="ysjeyhll != null">
+        YSJEYHLL,
+      </if>
+      <if test="jfrq != null">
+        JFRQ,
+      </if>
+      <if test="fpbh != null">
+        FPBH,
+      </if>
+      <if test="zpbh != null">
+        ZPBH,
+      </if>
+      <if test="swfpbh != null">
+        SWFPBH,
+      </if>
+      <if test="jsr != null">
+        JSR,
+      </if>
+      <if test="bpr != null">
+        BPR,
+      </if>
+      <if test="fhr != null">
+        FHR,
+      </if>
+      <if test="zxfs != null">
+        ZXFS,
+      </if>
+      <if test="tdh != null">
+        TDH,
+      </if>
+      <if test="hblb != null">
+        HBLB,
+      </if>
+      <if test="sbbz != null">
+        SBBZ,
+      </if>
+      <if test="bpbz != null">
+        BPBZ,
+      </if>
+      <if test="sjlgsj != null">
+        SJLGSJ,
+      </if>
+      <if test="xsgsm != null">
+        XSGSM,
+      </if>
+      <if test="wtdh != null">
+        WTDH,
+      </if>
+      <if test="cytgjkfs != null">
+        CYTGJKFS,
+      </if>
+      <if test="tzbhbz != null">
+        TZBHBZ,
+      </if>
+      <if test="zffpbh != null">
+        ZFFPBH,
+      </if>
+      <if test="fplb != null">
+        FPLB,
+      </if>
+      <if test="bczd != null">
+        BCZD,
+      </if>
+      <if test="bzbz != null">
+        BZBZ,
+      </if>
+      <if test="szhtzbz != null">
+        SZHTZBZ,
+      </if>
+      <if test="tjsj != null">
+        TJSJ,
+      </if>
+      <if test="conno != null">
+        CONNO,
+      </if>
+      <if test="mtdm != null">
+        MTDM,
+      </if>
+      <if test="insertsj != null">
+        INSERTSJ,
+      </if>
+      <if test="updatesj != null">
+        UPDATESJ,
+      </if>
+      <if test="zzcmdm != null">
+        ZZCMDM,
+      </if>
+      <if test="zzhchc != null">
+        ZZHCHC,
+      </if>
+      <if test="bzbz2 != null">
+        BZBZ2,
+      </if>
+      <if test="bzbz3 != null">
+        BZBZ3,
+      </if>
+      <if test="bzbz4 != null">
+        BZBZ4,
+      </if>
+      <if test="dwlb != null">
+        DWLB,
+      </if>
+      <if test="yhfhsj != null">
+        YHFHSJ,
+      </if>
+      <if test="ywlsh != null">
+        YWLSH,
+      </if>
+      <if test="ycpbz != null">
+        YCPBZ,
+      </if>
+      <if test="fpht != null">
+        FPHT,
+      </if>
+      <if test="gth != null">
+        GTH,
+      </if>
+      <if test="yhbl != null">
+        YHBL,
+      </if>
+      <if test="yhje != null">
+        YHJE,
+      </if>
+      <if test="nsje != null">
+        NSJE,
+      </if>
+      <if test="yhnsje != null">
+        YHNSJE,
+      </if>
+      <if test="fpdm != null">
+        FPDM,
+      </if>
+      <if test="taxrate != null">
+        TAXRATE,
+      </if>
+      <if test="fkzh != null">
+        FKZH,
+      </if>
+      <if test="skzh != null">
+        SKZH,
+      </if>
+      <if test="zdbh != null">
+        ZDBH,
+      </if>
+      <if test="fpyyh != null">
+        FPYYH,
+      </if>
+      <if test="fpyysj != null">
+        FPYYSJ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tzbh != null">
+        #{tzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="khbh != null">
+        #{khbh,jdbcType=VARCHAR},
+      </if>
+      <if test="cmdm != null">
+        #{cmdm,jdbcType=CHAR},
+      </if>
+      <if test="hchc != null">
+        #{hchc,jdbcType=VARCHAR},
+      </if>
+      <if test="jsfs != null">
+        #{jsfs,jdbcType=CHAR},
+      </if>
+      <if test="fmdm != null">
+        #{fmdm,jdbcType=CHAR},
+      </if>
+      <if test="cc != null">
+        #{cc,jdbcType=CHAR},
+      </if>
+      <if test="kz != null">
+        #{kz,jdbcType=CHAR},
+      </if>
+      <if test="wlbz != null">
+        #{wlbz,jdbcType=CHAR},
+      </if>
+      <if test="nwm != null">
+        #{nwm,jdbcType=CHAR},
+      </if>
+      <if test="yjybs != null">
+        #{yjybs,jdbcType=CHAR},
+      </if>
+      <if test="zxcbz != null">
+        #{zxcbz,jdbcType=CHAR},
+      </if>
+      <if test="tsbz != null">
+        #{tsbz,jdbcType=CHAR},
+      </if>
+      <if test="slsl != null">
+        #{slsl,jdbcType=DECIMAL},
+      </if>
+      <if test="jjjs != null">
+        #{jjjs,jdbcType=DECIMAL},
+      </if>
+      <if test="ybjs != null">
+        #{ybjs,jdbcType=DECIMAL},
+      </if>
+      <if test="zbjs != null">
+        #{zbjs,jdbcType=DECIMAL},
+      </if>
+      <if test="flz != null">
+        #{flz,jdbcType=DECIMAL},
+      </if>
+      <if test="flzyhll != null">
+        #{flzyhll,jdbcType=DECIMAL},
+      </if>
+      <if test="ysje != null">
+        #{ysje,jdbcType=DECIMAL},
+      </if>
+      <if test="ysjeyhll != null">
+        #{ysjeyhll,jdbcType=DECIMAL},
+      </if>
+      <if test="jfrq != null">
+        #{jfrq,jdbcType=DATE},
+      </if>
+      <if test="fpbh != null">
+        #{fpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zpbh != null">
+        #{zpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="swfpbh != null">
+        #{swfpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="jsr != null">
+        #{jsr,jdbcType=VARCHAR},
+      </if>
+      <if test="bpr != null">
+        #{bpr,jdbcType=VARCHAR},
+      </if>
+      <if test="fhr != null">
+        #{fhr,jdbcType=VARCHAR},
+      </if>
+      <if test="zxfs != null">
+        #{zxfs,jdbcType=CHAR},
+      </if>
+      <if test="tdh != null">
+        #{tdh,jdbcType=VARCHAR},
+      </if>
+      <if test="hblb != null">
+        #{hblb,jdbcType=VARCHAR},
+      </if>
+      <if test="sbbz != null">
+        #{sbbz,jdbcType=CHAR},
+      </if>
+      <if test="bpbz != null">
+        #{bpbz,jdbcType=CHAR},
+      </if>
+      <if test="sjlgsj != null">
+        #{sjlgsj,jdbcType=DATE},
+      </if>
+      <if test="xsgsm != null">
+        #{xsgsm,jdbcType=CHAR},
+      </if>
+      <if test="wtdh != null">
+        #{wtdh,jdbcType=VARCHAR},
+      </if>
+      <if test="cytgjkfs != null">
+        #{cytgjkfs,jdbcType=CHAR},
+      </if>
+      <if test="tzbhbz != null">
+        #{tzbhbz,jdbcType=VARCHAR},
+      </if>
+      <if test="zffpbh != null">
+        #{zffpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fplb != null">
+        #{fplb,jdbcType=CHAR},
+      </if>
+      <if test="bczd != null">
+        #{bczd,jdbcType=VARCHAR},
+      </if>
+      <if test="bzbz != null">
+        #{bzbz,jdbcType=VARCHAR},
+      </if>
+      <if test="szhtzbz != null">
+        #{szhtzbz,jdbcType=CHAR},
+      </if>
+      <if test="tjsj != null">
+        #{tjsj,jdbcType=DATE},
+      </if>
+      <if test="conno != null">
+        #{conno,jdbcType=VARCHAR},
+      </if>
+      <if test="mtdm != null">
+        #{mtdm,jdbcType=VARCHAR},
+      </if>
+      <if test="insertsj != null">
+        #{insertsj,jdbcType=DATE},
+      </if>
+      <if test="updatesj != null">
+        #{updatesj,jdbcType=DATE},
+      </if>
+      <if test="zzcmdm != null">
+        #{zzcmdm,jdbcType=CHAR},
+      </if>
+      <if test="zzhchc != null">
+        #{zzhchc,jdbcType=VARCHAR},
+      </if>
+      <if test="bzbz2 != null">
+        #{bzbz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bzbz3 != null">
+        #{bzbz3,jdbcType=VARCHAR},
+      </if>
+      <if test="bzbz4 != null">
+        #{bzbz4,jdbcType=VARCHAR},
+      </if>
+      <if test="dwlb != null">
+        #{dwlb,jdbcType=CHAR},
+      </if>
+      <if test="yhfhsj != null">
+        #{yhfhsj,jdbcType=DATE},
+      </if>
+      <if test="ywlsh != null">
+        #{ywlsh,jdbcType=VARCHAR},
+      </if>
+      <if test="ycpbz != null">
+        #{ycpbz,jdbcType=CHAR},
+      </if>
+      <if test="fpht != null">
+        #{fpht,jdbcType=VARCHAR},
+      </if>
+      <if test="gth != null">
+        #{gth,jdbcType=VARCHAR},
+      </if>
+      <if test="yhbl != null">
+        #{yhbl,jdbcType=DECIMAL},
+      </if>
+      <if test="yhje != null">
+        #{yhje,jdbcType=DECIMAL},
+      </if>
+      <if test="nsje != null">
+        #{nsje,jdbcType=DECIMAL},
+      </if>
+      <if test="yhnsje != null">
+        #{yhnsje,jdbcType=DECIMAL},
+      </if>
+      <if test="fpdm != null">
+        #{fpdm,jdbcType=VARCHAR},
+      </if>
+      <if test="taxrate != null">
+        #{taxrate,jdbcType=DECIMAL},
+      </if>
+      <if test="fkzh != null">
+        #{fkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="skzh != null">
+        #{skzh,jdbcType=VARCHAR},
+      </if>
+      <if test="zdbh != null">
+        #{zdbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fpyyh != null">
+        #{fpyyh,jdbcType=VARCHAR},
+      </if>
+      <if test="fpyysj != null">
+        #{fpyysj,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="yycg.base.pojo.po.JfTzExample" resultType="java.lang.Integer">
+    select count(*) from JF_TZ
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update JF_TZ
+    <set>
+      <if test="record.tzbh != null">
+        TZBH = #{record.tzbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.khbh != null">
+        KHBH = #{record.khbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cmdm != null">
+        CMDM = #{record.cmdm,jdbcType=CHAR},
+      </if>
+      <if test="record.hchc != null">
+        HCHC = #{record.hchc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jsfs != null">
+        JSFS = #{record.jsfs,jdbcType=CHAR},
+      </if>
+      <if test="record.fmdm != null">
+        FMDM = #{record.fmdm,jdbcType=CHAR},
+      </if>
+      <if test="record.cc != null">
+        CC = #{record.cc,jdbcType=CHAR},
+      </if>
+      <if test="record.kz != null">
+        KZ = #{record.kz,jdbcType=CHAR},
+      </if>
+      <if test="record.wlbz != null">
+        WLBZ = #{record.wlbz,jdbcType=CHAR},
+      </if>
+      <if test="record.nwm != null">
+        NWM = #{record.nwm,jdbcType=CHAR},
+      </if>
+      <if test="record.yjybs != null">
+        YJYBS = #{record.yjybs,jdbcType=CHAR},
+      </if>
+      <if test="record.zxcbz != null">
+        ZXCBZ = #{record.zxcbz,jdbcType=CHAR},
+      </if>
+      <if test="record.tsbz != null">
+        TSBZ = #{record.tsbz,jdbcType=CHAR},
+      </if>
+      <if test="record.slsl != null">
+        SLSL = #{record.slsl,jdbcType=DECIMAL},
+      </if>
+      <if test="record.jjjs != null">
+        JJJS = #{record.jjjs,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ybjs != null">
+        YBJS = #{record.ybjs,jdbcType=DECIMAL},
+      </if>
+      <if test="record.zbjs != null">
+        ZBJS = #{record.zbjs,jdbcType=DECIMAL},
+      </if>
+      <if test="record.flz != null">
+        FLZ = #{record.flz,jdbcType=DECIMAL},
+      </if>
+      <if test="record.flzyhll != null">
+        FLZYHLL = #{record.flzyhll,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ysje != null">
+        YSJE = #{record.ysje,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ysjeyhll != null">
+        YSJEYHLL = #{record.ysjeyhll,jdbcType=DECIMAL},
+      </if>
+      <if test="record.jfrq != null">
+        JFRQ = #{record.jfrq,jdbcType=DATE},
+      </if>
+      <if test="record.fpbh != null">
+        FPBH = #{record.fpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zpbh != null">
+        ZPBH = #{record.zpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.swfpbh != null">
+        SWFPBH = #{record.swfpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jsr != null">
+        JSR = #{record.jsr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bpr != null">
+        BPR = #{record.bpr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fhr != null">
+        FHR = #{record.fhr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zxfs != null">
+        ZXFS = #{record.zxfs,jdbcType=CHAR},
+      </if>
+      <if test="record.tdh != null">
+        TDH = #{record.tdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hblb != null">
+        HBLB = #{record.hblb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sbbz != null">
+        SBBZ = #{record.sbbz,jdbcType=CHAR},
+      </if>
+      <if test="record.bpbz != null">
+        BPBZ = #{record.bpbz,jdbcType=CHAR},
+      </if>
+      <if test="record.sjlgsj != null">
+        SJLGSJ = #{record.sjlgsj,jdbcType=DATE},
+      </if>
+      <if test="record.xsgsm != null">
+        XSGSM = #{record.xsgsm,jdbcType=CHAR},
+      </if>
+      <if test="record.wtdh != null">
+        WTDH = #{record.wtdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cytgjkfs != null">
+        CYTGJKFS = #{record.cytgjkfs,jdbcType=CHAR},
+      </if>
+      <if test="record.tzbhbz != null">
+        TZBHBZ = #{record.tzbhbz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zffpbh != null">
+        ZFFPBH = #{record.zffpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fplb != null">
+        FPLB = #{record.fplb,jdbcType=CHAR},
+      </if>
+      <if test="record.bczd != null">
+        BCZD = #{record.bczd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bzbz != null">
+        BZBZ = #{record.bzbz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.szhtzbz != null">
+        SZHTZBZ = #{record.szhtzbz,jdbcType=CHAR},
+      </if>
+      <if test="record.tjsj != null">
+        TJSJ = #{record.tjsj,jdbcType=DATE},
+      </if>
+      <if test="record.conno != null">
+        CONNO = #{record.conno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mtdm != null">
+        MTDM = #{record.mtdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insertsj != null">
+        INSERTSJ = #{record.insertsj,jdbcType=DATE},
+      </if>
+      <if test="record.updatesj != null">
+        UPDATESJ = #{record.updatesj,jdbcType=DATE},
+      </if>
+      <if test="record.zzcmdm != null">
+        ZZCMDM = #{record.zzcmdm,jdbcType=CHAR},
+      </if>
+      <if test="record.zzhchc != null">
+        ZZHCHC = #{record.zzhchc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bzbz2 != null">
+        BZBZ2 = #{record.bzbz2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bzbz3 != null">
+        BZBZ3 = #{record.bzbz3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bzbz4 != null">
+        BZBZ4 = #{record.bzbz4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dwlb != null">
+        DWLB = #{record.dwlb,jdbcType=CHAR},
+      </if>
+      <if test="record.yhfhsj != null">
+        YHFHSJ = #{record.yhfhsj,jdbcType=DATE},
+      </if>
+      <if test="record.ywlsh != null">
+        YWLSH = #{record.ywlsh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ycpbz != null">
+        YCPBZ = #{record.ycpbz,jdbcType=CHAR},
+      </if>
+      <if test="record.fpht != null">
+        FPHT = #{record.fpht,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gth != null">
+        GTH = #{record.gth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yhbl != null">
+        YHBL = #{record.yhbl,jdbcType=DECIMAL},
+      </if>
+      <if test="record.yhje != null">
+        YHJE = #{record.yhje,jdbcType=DECIMAL},
+      </if>
+      <if test="record.nsje != null">
+        NSJE = #{record.nsje,jdbcType=DECIMAL},
+      </if>
+      <if test="record.yhnsje != null">
+        YHNSJE = #{record.yhnsje,jdbcType=DECIMAL},
+      </if>
+      <if test="record.fpdm != null">
+        FPDM = #{record.fpdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxrate != null">
+        TAXRATE = #{record.taxrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.fkzh != null">
+        FKZH = #{record.fkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.skzh != null">
+        SKZH = #{record.skzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zdbh != null">
+        ZDBH = #{record.zdbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fpyyh != null">
+        FPYYH = #{record.fpyyh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fpyysj != null">
+        FPYYSJ = #{record.fpyysj,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update JF_TZ
+    set TZBH = #{record.tzbh,jdbcType=VARCHAR},
+      KHBH = #{record.khbh,jdbcType=VARCHAR},
+      CMDM = #{record.cmdm,jdbcType=CHAR},
+      HCHC = #{record.hchc,jdbcType=VARCHAR},
+      JSFS = #{record.jsfs,jdbcType=CHAR},
+      FMDM = #{record.fmdm,jdbcType=CHAR},
+      CC = #{record.cc,jdbcType=CHAR},
+      KZ = #{record.kz,jdbcType=CHAR},
+      WLBZ = #{record.wlbz,jdbcType=CHAR},
+      NWM = #{record.nwm,jdbcType=CHAR},
+      YJYBS = #{record.yjybs,jdbcType=CHAR},
+      ZXCBZ = #{record.zxcbz,jdbcType=CHAR},
+      TSBZ = #{record.tsbz,jdbcType=CHAR},
+      SLSL = #{record.slsl,jdbcType=DECIMAL},
+      JJJS = #{record.jjjs,jdbcType=DECIMAL},
+      YBJS = #{record.ybjs,jdbcType=DECIMAL},
+      ZBJS = #{record.zbjs,jdbcType=DECIMAL},
+      FLZ = #{record.flz,jdbcType=DECIMAL},
+      FLZYHLL = #{record.flzyhll,jdbcType=DECIMAL},
+      YSJE = #{record.ysje,jdbcType=DECIMAL},
+      YSJEYHLL = #{record.ysjeyhll,jdbcType=DECIMAL},
+      JFRQ = #{record.jfrq,jdbcType=DATE},
+      FPBH = #{record.fpbh,jdbcType=VARCHAR},
+      ZPBH = #{record.zpbh,jdbcType=VARCHAR},
+      SWFPBH = #{record.swfpbh,jdbcType=VARCHAR},
+      JSR = #{record.jsr,jdbcType=VARCHAR},
+      BPR = #{record.bpr,jdbcType=VARCHAR},
+      FHR = #{record.fhr,jdbcType=VARCHAR},
+      ZXFS = #{record.zxfs,jdbcType=CHAR},
+      TDH = #{record.tdh,jdbcType=VARCHAR},
+      HBLB = #{record.hblb,jdbcType=VARCHAR},
+      SBBZ = #{record.sbbz,jdbcType=CHAR},
+      BPBZ = #{record.bpbz,jdbcType=CHAR},
+      SJLGSJ = #{record.sjlgsj,jdbcType=DATE},
+      XSGSM = #{record.xsgsm,jdbcType=CHAR},
+      WTDH = #{record.wtdh,jdbcType=VARCHAR},
+      CYTGJKFS = #{record.cytgjkfs,jdbcType=CHAR},
+      TZBHBZ = #{record.tzbhbz,jdbcType=VARCHAR},
+      ZFFPBH = #{record.zffpbh,jdbcType=VARCHAR},
+      FPLB = #{record.fplb,jdbcType=CHAR},
+      BCZD = #{record.bczd,jdbcType=VARCHAR},
+      BZBZ = #{record.bzbz,jdbcType=VARCHAR},
+      SZHTZBZ = #{record.szhtzbz,jdbcType=CHAR},
+      TJSJ = #{record.tjsj,jdbcType=DATE},
+      CONNO = #{record.conno,jdbcType=VARCHAR},
+      MTDM = #{record.mtdm,jdbcType=VARCHAR},
+      INSERTSJ = #{record.insertsj,jdbcType=DATE},
+      UPDATESJ = #{record.updatesj,jdbcType=DATE},
+      ZZCMDM = #{record.zzcmdm,jdbcType=CHAR},
+      ZZHCHC = #{record.zzhchc,jdbcType=VARCHAR},
+      BZBZ2 = #{record.bzbz2,jdbcType=VARCHAR},
+      BZBZ3 = #{record.bzbz3,jdbcType=VARCHAR},
+      BZBZ4 = #{record.bzbz4,jdbcType=VARCHAR},
+      DWLB = #{record.dwlb,jdbcType=CHAR},
+      YHFHSJ = #{record.yhfhsj,jdbcType=DATE},
+      YWLSH = #{record.ywlsh,jdbcType=VARCHAR},
+      YCPBZ = #{record.ycpbz,jdbcType=CHAR},
+      FPHT = #{record.fpht,jdbcType=VARCHAR},
+      GTH = #{record.gth,jdbcType=VARCHAR},
+      YHBL = #{record.yhbl,jdbcType=DECIMAL},
+      YHJE = #{record.yhje,jdbcType=DECIMAL},
+      NSJE = #{record.nsje,jdbcType=DECIMAL},
+      YHNSJE = #{record.yhnsje,jdbcType=DECIMAL},
+      FPDM = #{record.fpdm,jdbcType=VARCHAR},
+      TAXRATE = #{record.taxrate,jdbcType=DECIMAL},
+      FKZH = #{record.fkzh,jdbcType=VARCHAR},
+      SKZH = #{record.skzh,jdbcType=VARCHAR},
+      ZDBH = #{record.zdbh,jdbcType=VARCHAR},
+      FPYYH = #{record.fpyyh,jdbcType=VARCHAR},
+      FPYYSJ = #{record.fpyysj,jdbcType=DATE}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="yycg.base.pojo.po.JfTz">
+    update JF_TZ
+    <set>
+      <if test="khbh != null">
+        KHBH = #{khbh,jdbcType=VARCHAR},
+      </if>
+      <if test="cmdm != null">
+        CMDM = #{cmdm,jdbcType=CHAR},
+      </if>
+      <if test="hchc != null">
+        HCHC = #{hchc,jdbcType=VARCHAR},
+      </if>
+      <if test="jsfs != null">
+        JSFS = #{jsfs,jdbcType=CHAR},
+      </if>
+      <if test="fmdm != null">
+        FMDM = #{fmdm,jdbcType=CHAR},
+      </if>
+      <if test="cc != null">
+        CC = #{cc,jdbcType=CHAR},
+      </if>
+      <if test="kz != null">
+        KZ = #{kz,jdbcType=CHAR},
+      </if>
+      <if test="wlbz != null">
+        WLBZ = #{wlbz,jdbcType=CHAR},
+      </if>
+      <if test="nwm != null">
+        NWM = #{nwm,jdbcType=CHAR},
+      </if>
+      <if test="yjybs != null">
+        YJYBS = #{yjybs,jdbcType=CHAR},
+      </if>
+      <if test="zxcbz != null">
+        ZXCBZ = #{zxcbz,jdbcType=CHAR},
+      </if>
+      <if test="tsbz != null">
+        TSBZ = #{tsbz,jdbcType=CHAR},
+      </if>
+      <if test="slsl != null">
+        SLSL = #{slsl,jdbcType=DECIMAL},
+      </if>
+      <if test="jjjs != null">
+        JJJS = #{jjjs,jdbcType=DECIMAL},
+      </if>
+      <if test="ybjs != null">
+        YBJS = #{ybjs,jdbcType=DECIMAL},
+      </if>
+      <if test="zbjs != null">
+        ZBJS = #{zbjs,jdbcType=DECIMAL},
+      </if>
+      <if test="flz != null">
+        FLZ = #{flz,jdbcType=DECIMAL},
+      </if>
+      <if test="flzyhll != null">
+        FLZYHLL = #{flzyhll,jdbcType=DECIMAL},
+      </if>
+      <if test="ysje != null">
+        YSJE = #{ysje,jdbcType=DECIMAL},
+      </if>
+      <if test="ysjeyhll != null">
+        YSJEYHLL = #{ysjeyhll,jdbcType=DECIMAL},
+      </if>
+      <if test="jfrq != null">
+        JFRQ = #{jfrq,jdbcType=DATE},
+      </if>
+      <if test="fpbh != null">
+        FPBH = #{fpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zpbh != null">
+        ZPBH = #{zpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="swfpbh != null">
+        SWFPBH = #{swfpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="jsr != null">
+        JSR = #{jsr,jdbcType=VARCHAR},
+      </if>
+      <if test="bpr != null">
+        BPR = #{bpr,jdbcType=VARCHAR},
+      </if>
+      <if test="fhr != null">
+        FHR = #{fhr,jdbcType=VARCHAR},
+      </if>
+      <if test="zxfs != null">
+        ZXFS = #{zxfs,jdbcType=CHAR},
+      </if>
+      <if test="tdh != null">
+        TDH = #{tdh,jdbcType=VARCHAR},
+      </if>
+      <if test="hblb != null">
+        HBLB = #{hblb,jdbcType=VARCHAR},
+      </if>
+      <if test="sbbz != null">
+        SBBZ = #{sbbz,jdbcType=CHAR},
+      </if>
+      <if test="bpbz != null">
+        BPBZ = #{bpbz,jdbcType=CHAR},
+      </if>
+      <if test="sjlgsj != null">
+        SJLGSJ = #{sjlgsj,jdbcType=DATE},
+      </if>
+      <if test="xsgsm != null">
+        XSGSM = #{xsgsm,jdbcType=CHAR},
+      </if>
+      <if test="wtdh != null">
+        WTDH = #{wtdh,jdbcType=VARCHAR},
+      </if>
+      <if test="cytgjkfs != null">
+        CYTGJKFS = #{cytgjkfs,jdbcType=CHAR},
+      </if>
+      <if test="tzbhbz != null">
+        TZBHBZ = #{tzbhbz,jdbcType=VARCHAR},
+      </if>
+      <if test="zffpbh != null">
+        ZFFPBH = #{zffpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fplb != null">
+        FPLB = #{fplb,jdbcType=CHAR},
+      </if>
+      <if test="bczd != null">
+        BCZD = #{bczd,jdbcType=VARCHAR},
+      </if>
+      <if test="bzbz != null">
+        BZBZ = #{bzbz,jdbcType=VARCHAR},
+      </if>
+      <if test="szhtzbz != null">
+        SZHTZBZ = #{szhtzbz,jdbcType=CHAR},
+      </if>
+      <if test="tjsj != null">
+        TJSJ = #{tjsj,jdbcType=DATE},
+      </if>
+      <if test="conno != null">
+        CONNO = #{conno,jdbcType=VARCHAR},
+      </if>
+      <if test="mtdm != null">
+        MTDM = #{mtdm,jdbcType=VARCHAR},
+      </if>
+      <if test="insertsj != null">
+        INSERTSJ = #{insertsj,jdbcType=DATE},
+      </if>
+      <if test="updatesj != null">
+        UPDATESJ = #{updatesj,jdbcType=DATE},
+      </if>
+      <if test="zzcmdm != null">
+        ZZCMDM = #{zzcmdm,jdbcType=CHAR},
+      </if>
+      <if test="zzhchc != null">
+        ZZHCHC = #{zzhchc,jdbcType=VARCHAR},
+      </if>
+      <if test="bzbz2 != null">
+        BZBZ2 = #{bzbz2,jdbcType=VARCHAR},
+      </if>
+      <if test="bzbz3 != null">
+        BZBZ3 = #{bzbz3,jdbcType=VARCHAR},
+      </if>
+      <if test="bzbz4 != null">
+        BZBZ4 = #{bzbz4,jdbcType=VARCHAR},
+      </if>
+      <if test="dwlb != null">
+        DWLB = #{dwlb,jdbcType=CHAR},
+      </if>
+      <if test="yhfhsj != null">
+        YHFHSJ = #{yhfhsj,jdbcType=DATE},
+      </if>
+      <if test="ywlsh != null">
+        YWLSH = #{ywlsh,jdbcType=VARCHAR},
+      </if>
+      <if test="ycpbz != null">
+        YCPBZ = #{ycpbz,jdbcType=CHAR},
+      </if>
+      <if test="fpht != null">
+        FPHT = #{fpht,jdbcType=VARCHAR},
+      </if>
+      <if test="gth != null">
+        GTH = #{gth,jdbcType=VARCHAR},
+      </if>
+      <if test="yhbl != null">
+        YHBL = #{yhbl,jdbcType=DECIMAL},
+      </if>
+      <if test="yhje != null">
+        YHJE = #{yhje,jdbcType=DECIMAL},
+      </if>
+      <if test="nsje != null">
+        NSJE = #{nsje,jdbcType=DECIMAL},
+      </if>
+      <if test="yhnsje != null">
+        YHNSJE = #{yhnsje,jdbcType=DECIMAL},
+      </if>
+      <if test="fpdm != null">
+        FPDM = #{fpdm,jdbcType=VARCHAR},
+      </if>
+      <if test="taxrate != null">
+        TAXRATE = #{taxrate,jdbcType=DECIMAL},
+      </if>
+      <if test="fkzh != null">
+        FKZH = #{fkzh,jdbcType=VARCHAR},
+      </if>
+      <if test="skzh != null">
+        SKZH = #{skzh,jdbcType=VARCHAR},
+      </if>
+      <if test="zdbh != null">
+        ZDBH = #{zdbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fpyyh != null">
+        FPYYH = #{fpyyh,jdbcType=VARCHAR},
+      </if>
+      <if test="fpyysj != null">
+        FPYYSJ = #{fpyysj,jdbcType=DATE},
+      </if>
+    </set>
+    where TZBH = #{tzbh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="yycg.base.pojo.po.JfTz">
+    update JF_TZ
+    set KHBH = #{khbh,jdbcType=VARCHAR},
+      CMDM = #{cmdm,jdbcType=CHAR},
+      HCHC = #{hchc,jdbcType=VARCHAR},
+      JSFS = #{jsfs,jdbcType=CHAR},
+      FMDM = #{fmdm,jdbcType=CHAR},
+      CC = #{cc,jdbcType=CHAR},
+      KZ = #{kz,jdbcType=CHAR},
+      WLBZ = #{wlbz,jdbcType=CHAR},
+      NWM = #{nwm,jdbcType=CHAR},
+      YJYBS = #{yjybs,jdbcType=CHAR},
+      ZXCBZ = #{zxcbz,jdbcType=CHAR},
+      TSBZ = #{tsbz,jdbcType=CHAR},
+      SLSL = #{slsl,jdbcType=DECIMAL},
+      JJJS = #{jjjs,jdbcType=DECIMAL},
+      YBJS = #{ybjs,jdbcType=DECIMAL},
+      ZBJS = #{zbjs,jdbcType=DECIMAL},
+      FLZ = #{flz,jdbcType=DECIMAL},
+      FLZYHLL = #{flzyhll,jdbcType=DECIMAL},
+      YSJE = #{ysje,jdbcType=DECIMAL},
+      YSJEYHLL = #{ysjeyhll,jdbcType=DECIMAL},
+      JFRQ = #{jfrq,jdbcType=DATE},
+      FPBH = #{fpbh,jdbcType=VARCHAR},
+      ZPBH = #{zpbh,jdbcType=VARCHAR},
+      SWFPBH = #{swfpbh,jdbcType=VARCHAR},
+      JSR = #{jsr,jdbcType=VARCHAR},
+      BPR = #{bpr,jdbcType=VARCHAR},
+      FHR = #{fhr,jdbcType=VARCHAR},
+      ZXFS = #{zxfs,jdbcType=CHAR},
+      TDH = #{tdh,jdbcType=VARCHAR},
+      HBLB = #{hblb,jdbcType=VARCHAR},
+      SBBZ = #{sbbz,jdbcType=CHAR},
+      BPBZ = #{bpbz,jdbcType=CHAR},
+      SJLGSJ = #{sjlgsj,jdbcType=DATE},
+      XSGSM = #{xsgsm,jdbcType=CHAR},
+      WTDH = #{wtdh,jdbcType=VARCHAR},
+      CYTGJKFS = #{cytgjkfs,jdbcType=CHAR},
+      TZBHBZ = #{tzbhbz,jdbcType=VARCHAR},
+      ZFFPBH = #{zffpbh,jdbcType=VARCHAR},
+      FPLB = #{fplb,jdbcType=CHAR},
+      BCZD = #{bczd,jdbcType=VARCHAR},
+      BZBZ = #{bzbz,jdbcType=VARCHAR},
+      SZHTZBZ = #{szhtzbz,jdbcType=CHAR},
+      TJSJ = #{tjsj,jdbcType=DATE},
+      CONNO = #{conno,jdbcType=VARCHAR},
+      MTDM = #{mtdm,jdbcType=VARCHAR},
+      INSERTSJ = #{insertsj,jdbcType=DATE},
+      UPDATESJ = #{updatesj,jdbcType=DATE},
+      ZZCMDM = #{zzcmdm,jdbcType=CHAR},
+      ZZHCHC = #{zzhchc,jdbcType=VARCHAR},
+      BZBZ2 = #{bzbz2,jdbcType=VARCHAR},
+      BZBZ3 = #{bzbz3,jdbcType=VARCHAR},
+      BZBZ4 = #{bzbz4,jdbcType=VARCHAR},
+      DWLB = #{dwlb,jdbcType=CHAR},
+      YHFHSJ = #{yhfhsj,jdbcType=DATE},
+      YWLSH = #{ywlsh,jdbcType=VARCHAR},
+      YCPBZ = #{ycpbz,jdbcType=CHAR},
+      FPHT = #{fpht,jdbcType=VARCHAR},
+      GTH = #{gth,jdbcType=VARCHAR},
+      YHBL = #{yhbl,jdbcType=DECIMAL},
+      YHJE = #{yhje,jdbcType=DECIMAL},
+      NSJE = #{nsje,jdbcType=DECIMAL},
+      YHNSJE = #{yhnsje,jdbcType=DECIMAL},
+      FPDM = #{fpdm,jdbcType=VARCHAR},
+      TAXRATE = #{taxrate,jdbcType=DECIMAL},
+      FKZH = #{fkzh,jdbcType=VARCHAR},
+      SKZH = #{skzh,jdbcType=VARCHAR},
+      ZDBH = #{zdbh,jdbcType=VARCHAR},
+      FPYYH = #{fpyyh,jdbcType=VARCHAR},
+      FPYYSJ = #{fpyysj,jdbcType=DATE}
+    where TZBH = #{tzbh,jdbcType=VARCHAR}
+  </update>
+</mapper>

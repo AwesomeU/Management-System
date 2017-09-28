@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 命名空间 SysuserMapperCustom就是mapper的接口-->
+<mapper namespace="yycg.base.dao.mapper.SysuserCustomMapper">
+<!-- sql片段 -->
+	<!-- 用户查询条件 通常情况，为了提高 sql片段可重用性，按单表创建sql片段 -->
+	<sql id="query_sysuser_where">
+		<if test="sysuser!=null">
+			<if test="sysuser.TZBH!=null and sysuser.TZBH!=''">
+				and sysuser.TZBH = #{sysuser.TZBH}
+			</if>
+			<if test="sysuser.TDH!=null and sysuser.TDH!=''">
+				and sysuser.TDH like '%${sysuser.TDH}%'
+			</if>
+			<if test="sysuser.HCHC!=null and sysuser.HCHC!=''">
+				and sysuser.HCHC like '%${sysuser.HCHC}%'
+			</if>
+
+		</if>
+	</sql>
+
+	<!-- 根据id查询用户的信息  findSysuserById为方法名-->
+	<select id="findSysuserById" parameterType="string" resultType="yycg.base.pojo.po.Sysuser" >
+		select * from JF_TZ where TZBH = #{TZBH}
+	</select>
+	
+	<!-- 列表信息查询 + 分页-->
+	<select id="findUserPageList" parameterType="string"
+		resultType="yycg.base.pojo.po.Sysuser">
+		<if test="pageQuery!=null">
+			select page_2.*
+			from (select page_1.*, rownum page_num
+			from (
+		</if>
+
+			select * from JF_TZ where TDH = #{TDH}
+
+		<if test="pageQuery!=null">
+			) page_1
+        <![CDATA[
+         where rownum <= ${pageQuery.PageQuery_end}) page_2
+ where page_2.page_num >= ${pageQuery.PageQuery_start}
+ ]]>
+		</if>
+	</select> 
+	<!-- 查询信息列表+无分页 -->
+	<select id="findUserList" parameterType="string" resultType="yycg.base.pojo.po.Sysuser" >
+		select tzbh,khbh,cmdm,hchc,tdh,fmdm,cc,slsl,ysje,nsje  from JF_TZ where TDH = #{TDH}
+	</select>
+	 <!-- 多条件查询 -->
+	<select id="findUserListByVo" parameterType="yycg.base.pojo.vo.QueryVo" resultType="yycg.base.pojo.po.Sysuser" >
+	
+	<if test="pageQuery!=null">
+		select page_2.*
+		from (select page_1.*, rownum page_num
+		from (
+	</if>
+	
+		select * from(
+			select tzbh,khbh,cmdm,hchc,tdh,fmdm,cc,slsl,ysje,nsje  from JF_TZ
+		)sysuser
+		 <where>
+			<include refid="query_sysuser_where" />
+		</where>
+		
+	<if test="pageQuery!=null">
+		) page_1
+       <![CDATA[
+        where rownum <= ${pageQuery.PageQuery_end}) page_2
+where page_2.page_num >= ${pageQuery.PageQuery_start}
+]]>
+	</if>
+	
+	</select>
+	
+	<!-- 查询列表的总记录数 -->
+	<select id="getUserListCount" parameterType="yycg.base.pojo.vo.QueryVo" resultType="int" >
+		select count(*) from(
+			select tzbh,khbh,cmdm,hchc,tdh,fmdm,cc,slsl,ysje,nsje  from JF_TZ
+		)sysuser
+		 <where>
+			<include refid="query_sysuser_where" />
+		</where>	
+	</select>
+	
+</mapper>
